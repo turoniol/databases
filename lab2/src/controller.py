@@ -35,11 +35,9 @@ class Controller:
 
     def _on_insert(self, table_name: str) -> None:
         columns: tuple = tuple(input('Введіть назви стовпців: ').strip().split())
-        values: tuple = tuple(input('Введіть значення атрибутів: ').strip().split())
-        try:
-            self._rep.insert(table=table_name, columns=columns, value=values)
-        except Exception as err:
-            print(err)
+        values: tuple = tuple(input('Введіть значення атрибутів: ').strip().split(','))
+        self._rep.insert(table=table_name, columns=columns, value=values)
+
 
     def _on_update(self, table_name: str) -> None:
         condition = self._read_condition()
